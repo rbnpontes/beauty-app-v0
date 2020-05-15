@@ -1,7 +1,18 @@
+import 'package:app/pages/main-screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MyApp());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight
+  ]);
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/' : (context) => MainScreen()
+    },
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -26,7 +37,10 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => MainScreen()
+      },
     );
   }
 }
